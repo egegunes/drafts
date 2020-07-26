@@ -14,8 +14,9 @@ const http = HTTP.create();
 const base = 'https://api.github.com';
 
 const uuid = draft.uuid;
-const txt = draft.content;
+const content = draft.content;
 const createdAt = draft.createdAt.toISOString();
+const txt = `${createdAt}\n\n${content}`
 let fn = `${uuid}.md`
 
 if (draft.tags.includes("dream")) {
@@ -31,7 +32,7 @@ const options = {
     method: 'PUT',
     data: {
         message: `add ${fn} from drafts`,
-        content: Base64.encode(draft.content)
+        content: Base64.encode(txt)
     },
     headers: {
         'Authorization': `token ${githubKey}`
