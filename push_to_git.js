@@ -16,7 +16,7 @@ const base = 'https://api.github.com';
 const uuid = draft.uuid;
 const content = draft.content;
 const createdAt = draft.createdAt.toISOString();
-const txt = `${createdAt}\n\n${content}`
+const txt = `${createdAt}\n\n${content}\n\n`
 let fn = `${uuid}.md`
 
 if (draft.tags.includes("dream")) {
