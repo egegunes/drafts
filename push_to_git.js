@@ -14,7 +14,7 @@ const http = HTTP.create();
 const base = 'https://api.github.com';
 
 const content = draft.content;
-const createdAt = draft.createdAt.toISOString();
+const createdAt = draft.createdAt.toLocaleString("tr-TR", {hourCycle: "h24"}).replace(/ /g, "H").replace(/\./g, "").replace(/:/g, "");
 const fn = `${createdAt}.md`;
 let txt = `${content}\n\n`;
 
