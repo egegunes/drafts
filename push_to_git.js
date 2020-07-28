@@ -13,18 +13,13 @@ const repo = credential.getValue('repo');
 const http = HTTP.create();
 const base = 'https://api.github.com';
 
-const uuid = draft.uuid;
 const content = draft.content;
 const createdAt = draft.createdAt.toISOString();
-const txt = `${createdAt}\n\n${content}\n\n`
-let fn = `${uuid}.md`
+const fn = `${createdAt}.md`;
+let txt = `${content}\n\n`;
 
 if (draft.tags.includes("dream")) {
-  fn = `dream-${uuid}.md`
-}
-
-if (draft.tags.includes("ledger")) {
-  fn = `ledger-${uuid}.md`
+  txt = `DREAM\n\n${txt}`;
 }
 
 const options = {
